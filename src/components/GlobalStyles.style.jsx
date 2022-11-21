@@ -1,6 +1,11 @@
 import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
+    *{
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+    }
     :root {
 /* Increase or decrease the number 
 to change the vertical spacing globally*/

@@ -7,6 +7,7 @@ import Posts from "./Posts";
 import Product from "./Product";
 import Purchase from "./Purchase";
 import SharedLayout from "./SharedLayout";
+import Private from "./Private";
 
 export {
   Cart,
@@ -18,4 +19,5 @@ export {
   Product,
   Purchase,
   SharedLayout,
+  Private,
 };
