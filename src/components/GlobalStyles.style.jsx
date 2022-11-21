@@ -34,9 +34,10 @@ html {font-size: 16px;}
 
 body {
     font-size: 1em;
-    max-width: calc(25 * var(--vspace));
+    max-width: calc(25 * var(--vspace-2));
     margin: 0 auto;
     font-family: 'Volkhov', serif;
+    background-color: var(--green);
 }
 
 p {
@@ -132,6 +133,9 @@ sup {
     font-weight: normal;
 }
 
+section{
+    padding: var(--vspace-3);
+}
 
 .material-symbols-outlined {
   font-variation-settings:

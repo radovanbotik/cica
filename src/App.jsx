@@ -27,8 +27,8 @@ function App() {
           <Route path="/newpost" element={<CreatePost />} />
           <Route path="/purchase" element={<Purchase />} />
           <Route path="/purchase/product/:id" element={<Product />} />
+          <Route path="*" element={<Error />} />
         </Route>
-        <Route path="*" element={<Error />} />
       </Routes>
     </>
   );

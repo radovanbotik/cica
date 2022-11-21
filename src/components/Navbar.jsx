@@ -11,7 +11,7 @@ export default function Navbar() {
   return (
     <Navigation>
       <NavigationBigDevice>
-        <Logo>
+        <Logo to="/">
           <img
             src={logo}
             alt="site logo"
@@ -24,17 +24,31 @@ export default function Navbar() {
           />
         </Logo>
         <NavigationLinks>
-          <NavigationLink to="/">Home</NavigationLink>
-          <NavigationLink to="/purchase">Purchase</NavigationLink>
-          <NavigationLink to="/cart">Cart</NavigationLink>
-          <NavigationLink to="/posts">Posts</NavigationLink>
+          <NavigationLink to="/">About</NavigationLink>
+          <NavigationLink
+            to="/purchase"
+            fontcolor="var(--pink)"
+            // dashedborder="10px dashed var(--blue)"
+          >
+            BUY ME STUFF
+          </NavigationLink>
+          <NavigationLink to="/posts">Posts</NavigationLink>{" "}
           <NavigationLink to="/login">Login</NavigationLink>
+          <NavigationLink to="/cart" className="cart-link">
+            Cart
+            <span className="icons">
+              <span className="material-symbols-outlined icon-cart">
+                shopping_cart
+              </span>
+              <span className="item-count">99</span>
+            </span>
+          </NavigationLink>
         </NavigationLinks>
         <OpenClose onClick={() => setIsOpen(prev => !prev)}>
           {isOpen ? (
-            <span class="material-symbols-outlined">close</span>
+            <span className="material-symbols-outlined">close</span>
           ) : (
-            <span class="material-symbols-outlined">menu</span>
+            <span className="material-symbols-outlined">menu</span>
           )}
         </OpenClose>
       </NavigationBigDevice>
@@ -52,12 +66,49 @@ export default function Navbar() {
 }
 
 const Navigation = styled.nav`
+  position: relative;
   display: flex;
   flex-direction: column;
-  background-color: gold;
+  background-color: var(--yellow);
+  /* box-shadow: 4px 2px 0px 4px var(--pink); */
+  border: 10px dashed var(--blue);
+  margin: var(--vspace-3);
 `;
 const NavigationLinks = styled.div`
   display: none;
+
+  .cart-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    gap: 0.5em;
+    span.icons {
+      position: relative;
+    }
+    span.icon-cart {
+      font-size: 1.5em;
+      display: grid;
+      place-content: center;
+      transform: translateY(-2px);
+    }
+    span.item-count {
+      color: var(--yellow);
+      position: absolute;
+      width: 1rem;
+      height: 1rem;
+      font-size: 1rem;
+      padding: 0.7rem;
+      background-color: var(--blue);
+      display: grid;
+      place-content: center;
+      border: 2px solid var(--yellow);
+      border-radius: 50%;
+      top: -1.1rem;
+      right: -0.9rem;
+    }
+  }
+  /* DISPLAY LINKS FOR BIG DEVICES */
   @media (min-width: 500px) {
     display: flex;
     align-items: center;
@@ -65,13 +116,26 @@ const NavigationLinks = styled.div`
   }
 `;
 const NavigationLink = styled(Link)`
+  color: ${props => props.fontcolor || "inherit"};
+  border: ${props => props.dashedborder || "none"};
   text-decoration: none;
   font-family: inherit;
+  font-weight: 700;
+  &:visited,
+  &:active {
+    color: ${props => props.fontcolor || "inherit"};
+  }
+  &:hover:not(:last-child) {
+    text-decoration: var(--blue) wavy underline 2px;
+  }
 `;
-const Logo = styled.div`
+const Logo = styled(Link)`
   max-width: 150px;
   margin-right: auto;
+  position: relative;
+
   img {
+    top: 0;
     height: 100%;
     width: 100%;
     display: block;
@@ -90,7 +154,9 @@ const NavigationSmallDevice = styled.div`
 `;
 const OpenClose = styled.div`
   align-self: center;
+  /* HIDE BUTTON && NAVIGATION EXTENSION FOR BIG DEVICES*/
   @media (min-width: 500px) {
     display: none;
   }
 `;
+const NavigationLinkCart = styled(Link)``;
