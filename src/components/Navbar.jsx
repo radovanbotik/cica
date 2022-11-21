@@ -1,5 +1,6 @@
 import React from "react";
-import { Navigation, NavigationLink } from "./Navbar.styled";
+import { Link } from "react-router-dom";
+import styled from "styled-components";
 
 export default function Navbar() {
   return (
@@ -12,3 +13,12 @@ export default function Navbar() {
     </Navigation>
   );
 }
+
+const Navigation = styled.nav`
+  display: flex;
+  gap: 2ex;
+`;
+const NavigationLink = styled(Link)`
+  text-decoration: none;
+  font-family: inherit;
+`;
