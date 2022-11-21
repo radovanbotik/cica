@@ -22,7 +22,7 @@ to change the vertical spacing globally*/
 
 
     --yellow: #ffde0f;
-    --orange:#f8bc30;
+    --purple:#8b49f9;
     --blue:#1f1d2f;
     --green:#ead71e;
     --pink:#d816b3;
@@ -38,6 +38,7 @@ body {
     margin: 0 auto;
     font-family: 'Volkhov', serif;
     background-color: var(--green);
+    color: var(--blue);
 }
 
 p {

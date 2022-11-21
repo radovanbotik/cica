@@ -28,7 +28,7 @@ export default function Navbar() {
           <NavigationLink
             to="/purchase"
             fontcolor="var(--pink)"
-            // dashedborder="10px dashed var(--blue)"
+            // dashedborder="2px dashed var(--pink)"
           >
             BUY ME STUFF
           </NavigationLink>
@@ -69,14 +69,14 @@ const Navigation = styled.nav`
   position: relative;
   display: flex;
   flex-direction: column;
-  background-color: var(--yellow);
+  /* background-color: var(--yellow); */
   /* box-shadow: 4px 2px 0px 4px var(--pink); */
-  border: 10px dashed var(--blue);
+  /* border: 10px dashed var(--blue); */
   margin: var(--vspace-3);
+  border-bottom: 1px solid var(--blue);
 `;
 const NavigationLinks = styled.div`
   display: none;
-
   .cart-link {
     display: flex;
     align-items: center;
@@ -119,14 +119,17 @@ const NavigationLink = styled(Link)`
   color: ${props => props.fontcolor || "inherit"};
   border: ${props => props.dashedborder || "none"};
   text-decoration: none;
+  padding: 0 var(--vspace-3);
   font-family: inherit;
   font-weight: 700;
+  border-left: 1px solid var(--blue);
   &:visited,
   &:active {
     color: ${props => props.fontcolor || "inherit"};
   }
   &:hover:not(:last-child) {
-    text-decoration: var(--blue) wavy underline 2px;
+    /* text-decoration: var(--blue) solid underline 1px; */
+    color: var(--blue);
   }
 `;
 const Logo = styled(Link)`

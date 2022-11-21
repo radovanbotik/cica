@@ -5,8 +5,8 @@ export default function Home() {
   return (
     <section>
       <Hero />
-      <Mission />
       <Featured />
+      <Mission />
       <Newsletter />
     </section>
   );

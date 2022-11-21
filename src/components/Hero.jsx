@@ -9,13 +9,16 @@ export default function Hero() {
       <Banner>
         <div className="col1">
           <h1 className="heading">Buy My Merch</h1>
-          <Button textContent={"Check The Store"} className="button" />
+          <Button
+            textContent={"Check The Store"}
+            path={"purchase"}
+            className="button"
+          />
         </div>
         <HeroImage className="image">
           <img src={cicaHero} alt="" />
         </HeroImage>
       </Banner>
-
       <p>
         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorem,
         recusandae. Quae quos neque dignissimos magni unde rem, fuga mollitia
@@ -41,6 +44,7 @@ const Banner = styled.div`
   }
   .heading {
     grid-area: col1;
+    text-decoration: solid var(--grey) underline 16px;
   }
   .image {
     justify-self: left;
