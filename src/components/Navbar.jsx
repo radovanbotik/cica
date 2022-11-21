@@ -7,41 +7,62 @@ import cicaLogoLaser from "../assets/cica-logo-laser.png";
 
 export default function Navbar() {
   const [logo, setLogo] = useState(cicaLogo);
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <Navigation>
-      <Logo>
-        <img
-          src={logo}
-          alt="site logo"
-          onMouseOver={() => {
-            setLogo(cicaLogoLaser);
-          }}
-          onMouseOut={() => {
-            setLogo(cicaLogo);
-          }}
-        />
-      </Logo>
-      <NavigationLinks>
-        <NavigationLink to="/">Home</NavigationLink>
-        <NavigationLink to="/purchase">Purchase</NavigationLink>
-        <NavigationLink to="/cart">Cart</NavigationLink>
-        <NavigationLink to="/posts">Posts</NavigationLink>
-        <NavigationLink to="/login">Login</NavigationLink>
-      </NavigationLinks>
+      <NavigationBigDevice>
+        <Logo>
+          <img
+            src={logo}
+            alt="site logo"
+            onMouseOver={() => {
+              setLogo(cicaLogoLaser);
+            }}
+            onMouseOut={() => {
+              setLogo(cicaLogo);
+            }}
+          />
+        </Logo>
+        <NavigationLinks>
+          <NavigationLink to="/">Home</NavigationLink>
+          <NavigationLink to="/purchase">Purchase</NavigationLink>
+          <NavigationLink to="/cart">Cart</NavigationLink>
+          <NavigationLink to="/posts">Posts</NavigationLink>
+          <NavigationLink to="/login">Login</NavigationLink>
+        </NavigationLinks>
+        <OpenClose onClick={() => setIsOpen(prev => !prev)}>
+          {isOpen ? (
+            <span class="material-symbols-outlined">close</span>
+          ) : (
+            <span class="material-symbols-outlined">menu</span>
+          )}
+        </OpenClose>
+      </NavigationBigDevice>
+      {isOpen && (
+        <NavigationSmallDevice>
+          <NavigationLink to="/">Home</NavigationLink>
+          <NavigationLink to="/purchase">Purchase</NavigationLink>
+          <NavigationLink to="/cart">Cart</NavigationLink>
+          <NavigationLink to="/posts">Posts</NavigationLink>
+          <NavigationLink to="/login">Login</NavigationLink>
+        </NavigationSmallDevice>
+      )}
     </Navigation>
   );
 }
 
 const Navigation = styled.nav`
-  height: 8rem;
-  padding: 1rem;
   display: flex;
+  flex-direction: column;
   background-color: gold;
 `;
 const NavigationLinks = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 2ex;
+  display: none;
+  @media (min-width: 500px) {
+    display: flex;
+    align-items: center;
+    gap: 2ex;
+  }
 `;
 const NavigationLink = styled(Link)`
   text-decoration: none;
@@ -54,5 +75,22 @@ const Logo = styled.div`
     height: 100%;
     width: 100%;
     display: block;
+  }
+`;
+const NavigationBigDevice = styled.div`
+  display: flex;
+  height: 8rem;
+  padding: 1rem;
+`;
+const NavigationSmallDevice = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+const OpenClose = styled.div`
+  align-self: center;
+  @media (min-width: 500px) {
+    display: none;
   }
 `;
