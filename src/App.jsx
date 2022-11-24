@@ -9,7 +9,7 @@ import {
   Purchase,
   SharedLayout,
   Private,
-  Product,
+  SingleProduct,
 } from "./pages";
 import { GlobalStyle } from "./components/GlobalStyles.style";
 // import "./App.css";
@@ -26,7 +26,7 @@ function App() {
           <Route path="/posts" element={<Posts />} />
           <Route path="/newpost" element={<CreatePost />} />
           <Route path="/purchase" element={<Purchase />} />
-          <Route path="/purchase/product/:id" element={<Product />} />
+          <Route path="/purchase/product/:id" element={<SingleProduct />} />
           <Route path="*" element={<Error />} />
         </Route>
       </Routes>

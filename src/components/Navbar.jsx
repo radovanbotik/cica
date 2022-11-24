@@ -73,7 +73,7 @@ const Navigation = styled.nav`
   /* box-shadow: 4px 2px 0px 4px var(--pink); */
   /* border: 10px dashed var(--blue); */
   margin: var(--vspace-3);
-  border-bottom: 1px solid var(--blue);
+  border-bottom: 16px solid var(--blue);
 `;
 const NavigationLinks = styled.div`
   display: none;

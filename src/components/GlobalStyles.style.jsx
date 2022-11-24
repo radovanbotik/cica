@@ -24,10 +24,11 @@ to change the vertical spacing globally*/
     --yellow: #ffde0f;
     --purple:#8b49f9;
     --blue:#1f1d2f;
-    --green:#ead71e;
+    /* --green:#ead71e; */
+    --green:#dc88a6;
     --pink:#d816b3;
     --grey:#ceced0;
-
+    --alternative:#dc88a6;
 }
 
 html {font-size: 16px;}

@@ -18,7 +18,7 @@ const ButtonStyle = styled.button`
   background-color: var(--pink);
   padding: 1rem 2rem;
   border: 2px solid var(--grey);
-  box-shadow: 2px 2px 0px 4px black;
+  box-shadow: 4px 4px 0px 0px black;
   cursor: pointer;
   &:hover {
     transform: scale(0.95);
