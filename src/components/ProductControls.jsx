@@ -19,7 +19,7 @@ export default function ProductControls(props) {
   };
   const incrementAmount = () => {
     setProductAmount(prev => {
-      if (prev + 1 <= 10) {
+      if (prev + 1 <= stock) {
         return prev + 1;
       }
       return prev;

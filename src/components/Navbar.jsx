@@ -30,7 +30,7 @@ export default function Navbar() {
             fontcolor="var(--pink)"
             // dashedborder="2px dashed var(--pink)"
           >
-            BUY ME STUFF
+            BUY MY STUFF
           </NavigationLink>
           <NavigationLink to="/posts">Posts</NavigationLink>{" "}
           <NavigationLink to="/login">Login</NavigationLink>
@@ -69,6 +69,7 @@ const Navigation = styled.nav`
   position: relative;
   display: flex;
   flex-direction: column;
+
   /* background-color: var(--yellow); */
   /* box-shadow: 4px 2px 0px 4px var(--pink); */
   /* border: 10px dashed var(--blue); */
@@ -122,7 +123,9 @@ const NavigationLink = styled(Link)`
   padding: 0 var(--vspace-3);
   font-family: inherit;
   font-weight: 700;
-  border-left: 1px solid var(--blue);
+  @media (min-width: 500px) {
+    border-left: 1px solid var(--blue);
+  }
   &:visited,
   &:active {
     color: ${props => props.fontcolor || "inherit"};
@@ -154,6 +157,7 @@ const NavigationSmallDevice = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-bottom: 2ex;
 `;
 const OpenClose = styled.div`
   align-self: center;

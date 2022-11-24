@@ -27,6 +27,9 @@ const ProductCard = styled(CardStyle)`
     display: flex;
     flex-direction: column;
     gap: var(--vspace-3);
+    text-decoration: none;
+    font-family: inherit;
+    color: inherit;
   }
   .image-control {
     height: 0;
