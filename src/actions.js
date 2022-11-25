@@ -5,3 +5,7 @@ export const GET_PRODUCT_INIT = "GET_PRODUCT_INIT";
 export const GET_PRODUCT_SUCCESS = "GET_PRODUCT_SUCCESS";
 export const GET_PRODUCT_ERROR = "GET_PRODUCT_ERROR";
 export const RETRIEVE_PRODUCTS = "RETRIEVE_PRODUCTS";
+export const SET_GRID_VIEW = "SET_GRID_VIEW";
+export const SET_LIST_VIEW = "SET_LIST_VIEW";
+export const SET_SORT = "SET_SORT";
+export const SORT = "SORT";
