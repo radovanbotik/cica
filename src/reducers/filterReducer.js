@@ -4,6 +4,8 @@ import {
   SET_LIST_VIEW,
   SET_SORT,
   SORT,
+  SET_CONTROLS,
+  FILTER_RESULTS,
 } from "../actions";
 
 export const filterReducer = (state, action) => {
@@ -12,6 +14,11 @@ export const filterReducer = (state, action) => {
       ...state,
       retrieved_products: [...action.payload],
       filtered_products: [...action.payload],
+      controls: {
+        ...state.controls,
+        min_price: Math.min(...action.payload.map(entry => entry.price)),
+        max_price: Math.max(...action.payload.map(entry => entry.price)),
+      },
     };
   }
   if (action.type === SET_GRID_VIEW) {
@@ -69,6 +76,20 @@ export const filterReducer = (state, action) => {
         ],
       };
     }
+  }
+  if (action.type === SET_CONTROLS) {
+    return {
+      ...state,
+      controls: {
+        ...state.controls,
+        [action.payload.controlName]: action.payload.controlValue,
+      },
+    };
+  }
+  if (action.type === FILTER_RESULTS) {
+    return {
+      ...state,
+    };
   }
   throw new Error(
     `cant find dispatch action: "${action.type}", check dispatch action again `

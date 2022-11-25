@@ -9,3 +9,5 @@ export const SET_GRID_VIEW = "SET_GRID_VIEW";
 export const SET_LIST_VIEW = "SET_LIST_VIEW";
 export const SET_SORT = "SET_SORT";
 export const SORT = "SORT";
+export const SET_CONTROLS = "SET_CONTROLS";
+export const FILTER_RESULTS = "FILTER_RESULTS";
