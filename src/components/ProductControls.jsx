@@ -44,7 +44,7 @@ export default function ProductControls(props) {
         </div>
       </div>
       <div className="amount-control">
-        <span>Amount:</span>
+        <span className="amount">Amount:</span>
         <span
           className="material-symbols-outlined icon"
           onClick={decrementAmount}
@@ -59,12 +59,14 @@ export default function ProductControls(props) {
           add
         </span>
       </div>
+      <Button>Add to cart</Button>
     </Control>
   );
 }
 
 const Control = styled.div`
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
   justify-content: space-between;
   gap: var(--vspace-3);
@@ -74,6 +76,7 @@ const Control = styled.div`
     align-items: center;
     padding: var(--vspace-3);
     border: 1px solid var(--blue);
+    box-shadow: 2px 4px 0px 0px var(--blue);
     .colors-options {
       margin-left: var(--vspace-3);
       display: flex;
@@ -86,8 +89,17 @@ const Control = styled.div`
     gap: var(--vspace-3);
     padding: var(--vspace-3);
     border: 1px solid var(--blue);
+    box-shadow: 2px 4px 0px 0px var(--blue);
+    .amount {
+      flex-basis: 3ex;
+      display: grid;
+      place-content: center;
+    }
     .icon {
       cursor: pointer;
+    }
+    .icon:active {
+      outline: 1px solid var(--purple);
     }
   }
 `;
@@ -99,4 +111,17 @@ const ColorCircle = styled.span`
   background-color: ${props => props.bg || "red"};
   opacity: ${props => (props.fullOpacity ? 1 : "0.25")};
   cursor: pointer;
+`;
+const Button = styled.button`
+  font-family: inherit;
+  text-transform: uppercase;
+  padding: 1rem 2rem;
+  background-color: var(--purple);
+  color: var(--blue);
+  cursor: pointer;
+  border: 1px solid var(--blue);
+  box-shadow: 2px 4px 0px 0px var(--blue);
+  &:active {
+    transform: scale(0.95);
+  }
 `;

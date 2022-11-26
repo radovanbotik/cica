@@ -35,6 +35,7 @@ const Preview = styled.div`
     img {
       position: absolute;
       top: 0;
+      left: 0;
       height: 100%;
       width: 100%;
       object-fit: cover;
@@ -43,12 +44,22 @@ const Preview = styled.div`
   .small-images {
     display: grid;
     align-self: flex-start;
-    grid-template-columns: repeat(auto-fit, minmax(80px, 160px));
+    grid-template-columns: repeat(auto-fit, minmax(40px, 80px));
     gap: var(--vspace-3);
   }
   .small-image {
+    width: 100%;
     object-fit: cover;
+    padding: 1ex;
+    background-color: black;
+    height: 0;
+    padding-top: 100%;
+    position: relative;
+
     img {
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
