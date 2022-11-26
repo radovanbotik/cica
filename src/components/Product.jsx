@@ -3,34 +3,49 @@ import styled from "styled-components";
 import { CardStyle } from "./Card";
 import { Link } from "react-router-dom";
 import { formatPrice } from "../utils/formatPrice";
+import { useGlobalFilterContext } from "../context/FilterContext";
 
 export default function Product(props) {
-  const { id, name, price, image, shipping, color, category } = props;
+  const { grid_view } = useGlobalFilterContext();
+  const { id, name, price, image, shipping, color, category, description } =
+    props;
   return (
     <ProductCard>
-      <Link to={`/purchase/product/${id}`} className="LinkWrap">
+      <LinkWrap
+        to={`/purchase/product/${id}`}
+        className="LinkWrap"
+        // view={grid_view}
+      >
         <div className="image-control">
           <img src={image[0].url} alt="" />
         </div>
         <div className="info-control">
           <h5>{name}</h5>
-          <p>Price:{formatPrice(price)}</p>
+          <p>Price:{formatPrice(price)}</p>{" "}
+          {!grid_view && (
+            <div className="description-control">
+              <p>{description}</p>
+            </div>
+          )}
         </div>
-      </Link>
+      </LinkWrap>
     </ProductCard>
   );
 }
 
+const LinkWrap = styled(Link)`
+  display: flex;
+  /* display: ${props => (props.view ? "flex" : "grid")}; */
+  flex-direction: column;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--vspace-3);
+  text-decoration: none;
+  font-family: inherit;
+  color: inherit;
+`;
 const ProductCard = styled(CardStyle)`
+  /* max-width: 300px; */
   height: 100%;
-  .LinkWrap {
-    display: flex;
-    flex-direction: column;
-    gap: var(--vspace-3);
-    text-decoration: none;
-    font-family: inherit;
-    color: inherit;
-  }
   .image-control {
     height: 0;
     padding-top: 100%;
@@ -47,12 +62,13 @@ const ProductCard = styled(CardStyle)`
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     h5 {
       margin: 0;
     }
     p {
       margin: 0;
     }
+  }
+  .description-control {
   }
 `;

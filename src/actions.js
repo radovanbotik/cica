@@ -11,3 +11,4 @@ export const SET_SORT = "SET_SORT";
 export const SORT = "SORT";
 export const SET_CONTROLS = "SET_CONTROLS";
 export const FILTER_RESULTS = "FILTER_RESULTS";
+export const FILTER_RESET = "FILTER_RESET";
