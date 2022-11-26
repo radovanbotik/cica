@@ -6,6 +6,7 @@ import {
   SORT,
   SET_CONTROLS,
   FILTER_RESULTS,
+  FILTER_RESET,
 } from "../actions";
 
 export const filterReducer = (state, action) => {
@@ -18,6 +19,7 @@ export const filterReducer = (state, action) => {
         ...state.controls,
         min_price: Math.min(...action.payload.map(entry => entry.price)),
         max_price: Math.max(...action.payload.map(entry => entry.price)),
+        price: Math.max(...action.payload.map(entry => entry.price)),
       },
     };
   }
@@ -87,8 +89,38 @@ export const filterReducer = (state, action) => {
     };
   }
   if (action.type === FILTER_RESULTS) {
+    const { retrieved_products } = state;
+    const { search, category, price } = state.controls;
+    let products_temporary = [...retrieved_products];
+    if (search.length > 0) {
+      products_temporary = products_temporary.filter(entry =>
+        entry.name.startsWith(search)
+      );
+    }
+    if (category !== "everything") {
+      products_temporary = products_temporary.filter(
+        entry => entry.category === category
+      );
+    }
+    if (price !== state.max_price) {
+      products_temporary = products_temporary.filter(
+        entry => entry.price < price
+      );
+    }
     return {
       ...state,
+      filtered_products: products_temporary,
+    };
+  }
+  if (action.type === FILTER_RESET) {
+    return {
+      ...state,
+      controls: {
+        ...state.controls,
+        search: "",
+        category: "everything",
+        price: state.controls.max_price,
+      },
     };
   }
   throw new Error(

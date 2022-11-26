@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { useGlobalFilterContext } from "../context/FilterContext";
+import { formatPrice } from "../utils/formatPrice";
 
 export default function ProductsControls() {
   const { controls, retrieved_products, setControls, restoreDefaultControls } =
@@ -43,7 +44,23 @@ export default function ProductsControls() {
             );
           })}
         </Control>
-      </form>
+        <Control>
+          <label htmlFor="price">price range</label>
+          <input
+            type="range"
+            name="price"
+            id="price"
+            min={min_price}
+            max={max_price}
+            value={price}
+            onChange={setControls}
+          />
+          <span>{formatPrice(price)}</span>
+        </Control>
+      </form>{" "}
+      <Control>
+        <button onClick={restoreDefaultControls}>reset filters</button>
+      </Control>
     </Section>
   );
 }

@@ -10,6 +10,7 @@ import {
   SORT,
   SET_CONTROLS,
   FILTER_RESULTS,
+  FILTER_RESET,
 } from "../actions";
 
 const FilterProvider = React.createContext();
@@ -61,12 +62,17 @@ const FilterContext = ({ children }) => {
     if (controlName === "category") {
       controlValue = e.target.textContent;
     }
+    if (controlName === "price") {
+      controlValue = Number(e.target.value);
+    }
     dispatch({
       type: SET_CONTROLS,
       payload: { controlName, controlValue },
     });
   };
-  const restoreDefaultControls = () => {};
+  const restoreDefaultControls = () => {
+    dispatch({ type: FILTER_RESET });
+  };
   return (
     <FilterProvider.Provider
       value={{
