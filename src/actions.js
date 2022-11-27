@@ -13,3 +13,6 @@ export const SET_CONTROLS = "SET_CONTROLS";
 export const FILTER_RESULTS = "FILTER_RESULTS";
 export const FILTER_RESET = "FILTER_RESET";
 export const ADD_TO_CART = "ADD_TO_CART";
+export const REMOVE_FROM_CART = "REMOVE_FROM_CART";
+export const EMPTY_CART = "EMPTY_CART";
+export const CHANGE_PRODUCT_AMOUNT = "CHANGE_PRODUCT_AMOUNT";

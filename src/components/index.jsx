@@ -11,12 +11,15 @@ import { CardStyle } from "./Card";
 import Product from "./Product";
 import Rating from "./Rating";
 import ImagePreview from "./ImagePreview";
-import ProductControls from "./ProductControls";
+import SingleProductControls from "./SingleProductControls";
 import ProductsControls from "./ProductsControls";
 import ViewToggle from "./ViewToggle";
 import Products from "./Products";
 import GridView from "./GridView";
 import ListView from "./ListView";
+import CartLayout from "./CartLayout";
+import CartItem from "./CartItem";
+import CartTotal from "./CartTotal";
 
 export {
   Featured,
@@ -32,10 +35,13 @@ export {
   Product,
   Rating,
   ImagePreview,
-  ProductControls,
+  SingleProductControls,
   ProductsControls,
   ViewToggle,
   Products,
   GridView,
   ListView,
+  CartLayout,
+  CartItem,
+  CartTotal,
 };

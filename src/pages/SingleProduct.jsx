@@ -10,7 +10,7 @@ import {
   Loading,
   Rating,
   ImagePreview,
-  ProductControls,
+  SingleProductControls,
 } from "../components";
 import { formatPrice } from "../utils/formatPrice";
 
@@ -49,7 +49,9 @@ export default function SingleProduct() {
             <h5>{formatPrice(price)}</h5>
             <p>{description}</p>
             <p>Avaibility: {stock > 0 ? "In Stock" : "Out Of Stock"} </p>
-            {stock > 0 && <ProductControls {...product.fields} />}
+            {stock > 0 && (
+              <SingleProductControls {...product.fields} airtableID={id} />
+            )}
           </div>
         </ProductDisplay>
       </Section>
@@ -61,7 +63,11 @@ const Section = styled.section`
 `;
 const ProductDisplay = styled(CardStyle)`
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: var(--vspace-3);
+  @media (min-width: 700px) {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--vspace-2);
+  }
   /* background-color: var(--purple); */
 `;

@@ -6,7 +6,7 @@ import {
   Login,
   Posts,
   CreatePost,
-  Purchase,
+  Shop,
   SharedLayout,
   Private,
   SingleProduct,
@@ -25,8 +25,8 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/posts" element={<Posts />} />
           <Route path="/newpost" element={<CreatePost />} />
-          <Route path="/purchase" element={<Purchase />} />
-          <Route path="/purchase/product/:id" element={<SingleProduct />} />
+          <Route path="/shop" element={<Shop />} />
+          <Route path="/shop/product/:id" element={<SingleProduct />} />
           <Route path="*" element={<Error />} />
         </Route>
       </Routes>

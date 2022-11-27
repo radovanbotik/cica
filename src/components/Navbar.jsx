@@ -2,10 +2,13 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import styled from "styled-components";
+import { useGlobalCartContext } from "../context/CartContext";
 import cicaLogo from "../assets/cica-logo.png";
 import cicaLogoLaser from "../assets/cica-logo-laser.png";
 
 export default function Navbar() {
+  const { total_item_amount } = useGlobalCartContext;
+  // console.log(useGlobalCartContext());
   const [logo, setLogo] = useState(cicaLogo);
   const [isOpen, setIsOpen] = useState(false);
   return (
@@ -29,7 +32,7 @@ export default function Navbar() {
         <NavigationLinks>
           <NavigationLink to="/">About</NavigationLink>
           <NavigationLink
-            to="/purchase"
+            to="/shop"
             fontcolor="var(--pink)"
             // dashedborder="2px dashed var(--pink)"
           >
@@ -37,14 +40,10 @@ export default function Navbar() {
           </NavigationLink>
           {/* <NavigationLink to="/posts">Posts</NavigationLink>
           <NavigationLink to="/login">Login</NavigationLink> */}
-          <NavigationLink to="/cart" className="cart-link">
-            Cart
-            <span className="icons">
-              <span className="material-symbols-outlined icon-cart">
-                shopping_cart
-              </span>
-              <span className="item-count">99</span>
-            </span>
+          <NavigationLink to="/cart">
+            {/* Cart */}
+            <div className="material-symbols-outlined icon">shopping_bag</div>
+            <div className="item-count">{total_item_amount}</div>
           </NavigationLink>
         </NavigationLinks>
         <OpenClose onClick={() => setIsOpen(prev => !prev)}>
@@ -78,54 +77,54 @@ const Navigation = styled.nav`
 `;
 const NavigationLinks = styled.div`
   display: none;
-  .cart-link {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    gap: 0.5em;
-    span.icons {
-      position: relative;
-    }
-    span.icon-cart {
-      font-size: 1.5em;
-      display: grid;
-      place-content: center;
-      transform: translateY(-2px);
-    }
-    span.item-count {
-      color: var(--yellow);
-      position: absolute;
-      width: 1rem;
-      height: 1rem;
-      font-size: 1rem;
-      padding: 0.7rem;
-      background-color: var(--blue);
-      display: grid;
-      place-content: center;
-      border: 2px solid var(--yellow);
-      border-radius: 50%;
-      top: -1.1rem;
-      right: -0.9rem;
-    }
-  }
+
   /* DISPLAY LINKS FOR BIG DEVICES */
   @media (min-width: 500px) {
     display: flex;
     align-items: center;
+    align-items: flex-end;
+
     gap: 2ex;
   }
 `;
 const NavigationLink = styled(Link)`
+  white-space: nowrap;
   color: ${props => props.fontcolor || "inherit"};
   border: ${props => props.dashedborder || "none"};
   text-decoration: none;
   padding: 0 var(--vspace-3);
   font-family: var(--nunito);
   font-weight: 800;
-  @media (min-width: 500px) {
-    border-left: 1px solid var(--blue);
+  display: grid;
+  place-items: center;
+  &:last-child {
+    position: relative;
+    display: grid;
+    place-items: center;
+    transform: translateY(-2px);
+    /* .material-symbols-outlined {
+      font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 48;
+    } */
+    .icon {
+      grid-column: 1/2;
+      grid-row: 1/2;
+      font-size: 2rem;
+      font-variation-settings: "FILL" 1;
+      color: var(--blue);
+    }
+    .item-count {
+      font-weight: 400;
+      grid-column: 1/2;
+      grid-row: 1/2;
+      font-size: 0.75rem;
+      color: var(--grey);
+      transform: translateY(4px);
+      z-index: 2;
+    }
   }
+  /* @media (min-width: 500px) {
+    border-left: 1px solid var(--blue);
+  } */
   &:visited,
   &:active {
     color: ${props => props.fontcolor || "inherit"};
@@ -136,10 +135,16 @@ const NavigationLink = styled(Link)`
   }
 `;
 const Logo = styled(Link)`
-  margin-right: auto;
+  margin: 0 auto;
+
+  @media (min-width: 500px) {
+    margin: unset;
+    margin-right: auto;
+  }
   position: relative;
   display: flex;
-  align-items: center;
+  /* align-items: center; */
+  align-items: flex-end;
   text-decoration: none;
   font-family: var(--futura);
   text-transform: uppercase;
@@ -170,6 +175,7 @@ const NavigationBigDevice = styled.div`
   gap: 2ex;
   @media (min-width: 700px) {
     flex-direction: row;
+    align-items: center;
   }
   height: 8rem;
   padding: 1rem;

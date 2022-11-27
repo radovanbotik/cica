@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components";
+import bgnoise from "../assets/bg-noise.jpg";
 
 export const GlobalStyle = createGlobalStyle`
     *{
@@ -7,13 +8,10 @@ export const GlobalStyle = createGlobalStyle`
         margin: 0;
     }
     :root {
-/* Increase or decrease the number 
-to change the vertical spacing globally*/
+
   
-/* Base Vertical Spacing */
     --space: 1.62;
 
-/* Vertical Spacing - multiplier */
     --vspace: calc(var(--space) * 1rem);
     --vspace-0: calc(3 * var(--space) * 1rem);
     --vspace-1: calc(2 * var(--space) * 1rem);
@@ -24,30 +22,45 @@ to change the vertical spacing globally*/
     --yellow: #ffde0f;
     --purple:#8b49f9;
     --blue:#1f1d2f;
-    /* --green:#ead71e; */
     --green:#dc88a6;
     --pink:#d816b3;
     --grey:#ceced0;
-    --alternative:#dc88a6;
 
     --volkhov: 'Volkhov', serif;
     --nunito: 'Nunito Sans', sans-serif;
 }
 
-html {font-size: 16px;}
+html {
+    font-size: 16px;
+
+}
 
 body {
+   
     font-size: 1em;
     max-width: calc(25 * var(--vspace-2));
     margin: 0 auto;
     font-family: 'Volkhov', serif;
     background-color: var(--green);
     color: var(--blue);
-}
+    position: relative;
+    background-image:linear-gradient(to bottom, rgba(206, 206, 208, 0.62), var(--blue)),
+    url(${bgnoise});
+    
+    
+
+   }
+  /* body::after{
+    inset: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url(${bgnoise})} */
 
 p {
     margin: var(--vspace) 0; 
     line-height: var(--vspace);
+    
 }
 
 h1 {

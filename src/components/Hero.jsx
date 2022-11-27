@@ -19,8 +19,8 @@ export default function Hero() {
             onMouseLeave={() => setGraphic(prev => !prev)}
           >
             <Button
-              textContent={"Check The Store"}
-              path={"purchase"}
+              textContent={"make me dough"}
+              path={"shop"}
               className="button"
             />
           </div>

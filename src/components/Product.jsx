@@ -12,7 +12,7 @@ export default function Product(props) {
   return (
     <ProductCard>
       <LinkWrap
-        to={`/purchase/product/${id}`}
+        to={`/shop/product/${id}`}
         className="LinkWrap"
         // view={grid_view}
       >
