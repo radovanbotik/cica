@@ -63,4 +63,5 @@ const ProductDisplay = styled(CardStyle)`
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: var(--vspace-3);
+  /* background-color: var(--purple); */
 `;

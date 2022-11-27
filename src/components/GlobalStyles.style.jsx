@@ -29,6 +29,9 @@ to change the vertical spacing globally*/
     --pink:#d816b3;
     --grey:#ceced0;
     --alternative:#dc88a6;
+
+    --volkhov: 'Volkhov', serif;
+    --nunito: 'Nunito Sans', sans-serif;
 }
 
 html {font-size: 16px;}
@@ -50,21 +53,29 @@ p {
 h1 {
     margin: var(--vspace-1) 0 var(--vspace-1) 0;
     line-height: calc(4.25/var(--space)* var(--vspace));
+  font-family: var(--nunito);
+
 }
 
 h2 {
     margin: var(--vspace-2) 0 var(--vspace-3) 0;
     line-height: 1em;
+  font-family: var(--nunito);
+
 }
 
 h3 {
     margin: var(--vspace-1) 0 var(--vspace-3) 0;
     line-height: 1em;
+  font-family: var(--nunito);
+
 }
 
 h4, h5, h6 {
     margin: var(--vspace-2) 0 var(--vspace-3) 0;
     line-height: var(--vspace);
+  font-family: var(--nunito);
+
 }
 
 .bigtitle, h1 {
@@ -137,6 +148,8 @@ sup {
 
 section{
     padding: var(--vspace-3);
+     margin: var(--vspace-3);
+
 }
 
 .material-symbols-outlined {

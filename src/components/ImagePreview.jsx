@@ -27,11 +27,11 @@ const Preview = styled.div`
   flex-direction: column; */
   display: grid;
   gap: var(--vspace-3);
-
   .big-image {
     position: relative;
     height: 0;
     padding-top: 100%;
+    background-color: var(--green);
     img {
       position: absolute;
       top: 0;
@@ -48,10 +48,10 @@ const Preview = styled.div`
     gap: var(--vspace-3);
   }
   .small-image {
+    background-color: var(--green);
     width: 100%;
     object-fit: cover;
     padding: 1ex;
-    background-color: black;
     height: 0;
     padding-top: 100%;
     position: relative;

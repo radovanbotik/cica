@@ -7,7 +7,7 @@ import { useState, useRef } from "react";
 export default function Mission() {
   return (
     <Section>
-      <h2>Why I need your money:</h2>
+      <h2>Why I need your meowney:</h2>
       <Control>
         {mission.map((entry, index) => {
           const { icon, id, target, title } = entry;
@@ -16,7 +16,7 @@ export default function Mission() {
               <span className="material-symbols-outlined close-icon">
                 close
               </span>
-              <h4>Goal #{id}:</h4>
+              {/* <h4>Goal #{id}:</h4> */}
               <h3>{title}</h3>
 
               <p className="short">{target}</p>
@@ -49,9 +49,9 @@ const Section = styled.section`
 const Control = styled.div`
   display: grid;
   gap: var(--vspace-3);
-  @media (min-width: 700px) {
+  /* @media (min-width: 700px) {
     grid-template-columns: 1fr 1fr;
-  }
+  } */
 `;
 const Card = styled(CardStyle)`
   .close-icon {
