@@ -20,8 +20,17 @@ export default function Featured() {
     return (
       <Section>
         <h2>Hot right now:</h2>
+        {/* <div className="cards">
+          {window.innerWidth > 640 && window.innerWidth < 900
+            ? productsFeatured.slice(0, 2).map(entry => {
+                return <Product key={entry.id} {...entry} />;
+              })
+            : productsFeatured.slice(0, 3).map(entry => {
+                return <Product key={entry.id} {...entry} />;
+              })}
+        </div> */}
         <div className="cards">
-          {productsFeatured.slice(0, 3).map(entry => {
+          {productsFeatured.slice(0, 2).map(entry => {
             return <Product key={entry.id} {...entry} />;
           })}
         </div>

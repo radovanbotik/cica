@@ -5,7 +5,7 @@ import Home from "./Home";
 import Login from "./Login";
 import Posts from "./Posts";
 import SingleProduct from "./SingleProduct";
-import Purchase from "./Purchase";
+import Shop from "./Shop";
 import SharedLayout from "./SharedLayout";
 import Private from "./Private";
 
@@ -17,7 +17,7 @@ export {
   Login,
   Posts,
   SingleProduct,
-  Purchase,
+  Shop,
   SharedLayout,
   Private,
 };
