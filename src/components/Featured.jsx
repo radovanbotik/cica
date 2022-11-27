@@ -21,7 +21,7 @@ export default function Featured() {
       <Section>
         <h2>Hot right now:</h2>
         <div className="cards">
-          {productsFeatured.slice(0, 4).map(entry => {
+          {productsFeatured.slice(0, 3).map(entry => {
             return <Product key={entry.id} {...entry} />;
           })}
         </div>

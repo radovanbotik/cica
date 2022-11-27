@@ -12,16 +12,19 @@ export default function Navbar() {
     <Navigation>
       <NavigationBigDevice>
         <Logo to="/">
-          <img
-            src={logo}
-            alt="site logo"
-            onMouseOver={() => {
-              setLogo(cicaLogoLaser);
-            }}
-            onMouseOut={() => {
-              setLogo(cicaLogo);
-            }}
-          />
+          {/* <div className="logo-control">
+            <img
+              src={logo}
+              alt="site logo"
+              onMouseOver={() => {
+                setLogo(cicaLogoLaser);
+              }}
+              onMouseOut={() => {
+                setLogo(cicaLogo);
+              }}
+            />
+          </div> */}
+          <span>urban cat.</span>
         </Logo>
         <NavigationLinks>
           <NavigationLink to="/">About</NavigationLink>
@@ -32,8 +35,8 @@ export default function Navbar() {
           >
             BUY MY STUFF
           </NavigationLink>
-          <NavigationLink to="/posts">Posts</NavigationLink>{" "}
-          <NavigationLink to="/login">Login</NavigationLink>
+          {/* <NavigationLink to="/posts">Posts</NavigationLink>
+          <NavigationLink to="/login">Login</NavigationLink> */}
           <NavigationLink to="/cart" className="cart-link">
             Cart
             <span className="icons">
@@ -69,12 +72,9 @@ const Navigation = styled.nav`
   position: relative;
   display: flex;
   flex-direction: column;
-
-  /* background-color: var(--yellow); */
-  /* box-shadow: 4px 2px 0px 4px var(--pink); */
-  /* border: 10px dashed var(--blue); */
+  padding: var(--vspace-3);
   margin: var(--vspace-3);
-  border-bottom: 16px solid var(--blue);
+  /* border-bottom: 16px solid var(--blue); */
 `;
 const NavigationLinks = styled.div`
   display: none;
@@ -121,8 +121,8 @@ const NavigationLink = styled(Link)`
   border: ${props => props.dashedborder || "none"};
   text-decoration: none;
   padding: 0 var(--vspace-3);
-  font-family: inherit;
-  font-weight: 700;
+  font-family: var(--nunito);
+  font-weight: 800;
   @media (min-width: 500px) {
     border-left: 1px solid var(--blue);
   }
@@ -136,19 +136,41 @@ const NavigationLink = styled(Link)`
   }
 `;
 const Logo = styled(Link)`
-  max-width: 150px;
   margin-right: auto;
   position: relative;
-
-  img {
-    top: 0;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  font-family: var(--futura);
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  color: inherit;
+  font-weight: 800;
+  font-size: 2rem;
+  white-space: nowrap;
+  .logo-control {
+    /* max-width: 150px; */
+    width: 80px;
     height: 100%;
-    width: 100%;
-    display: block;
+    position: relative;
+    img {
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 100%;
+      display: block;
+      object-fit: cover;
+    }
   }
 `;
 const NavigationBigDevice = styled.div`
   display: flex;
+  flex-direction: column;
+  gap: 2ex;
+  @media (min-width: 700px) {
+    flex-direction: row;
+  }
   height: 8rem;
   padding: 1rem;
 `;
