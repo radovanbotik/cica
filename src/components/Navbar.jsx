@@ -7,8 +7,7 @@ import cicaLogo from "../assets/cica-logo.png";
 import cicaLogoLaser from "../assets/cica-logo-laser.png";
 
 export default function Navbar() {
-  const { total_item_amount } = useGlobalCartContext;
-  // console.log(useGlobalCartContext());
+  const { total_item_amount } = useGlobalCartContext();
   const [logo, setLogo] = useState(cicaLogo);
   const [isOpen, setIsOpen] = useState(false);
   return (

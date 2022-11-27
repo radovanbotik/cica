@@ -3,6 +3,7 @@ import {
   REMOVE_FROM_CART,
   EMPTY_CART,
   CHANGE_PRODUCT_AMOUNT,
+  UPDATE_AMOUNTS,
 } from "../actions";
 
 export const cartReducer = (state, action) => {
@@ -90,6 +91,26 @@ export const cartReducer = (state, action) => {
       }
     });
     return { ...state, cart: temporaryCart };
+  }
+  if (action.type === UPDATE_AMOUNTS) {
+    const { total_item_amount, total_value_amount } = state.cart.reduce(
+      (total, item) => {
+        const { amount, price } = item;
+        total.total_item_amount = total.total_item_amount + amount;
+        total.total_value_amount = total.total_item_amount + amount * price;
+
+        return total;
+      },
+      {
+        total_item_amount: 0,
+        total_value_amount: 0,
+      }
+    );
+    return {
+      ...state,
+      total_item_amount: total_item_amount,
+      total_value_amount: total_value_amount,
+    };
   }
   throw new Error(
     `cant find dispatch action: "${action.type}", check dispatch action again `

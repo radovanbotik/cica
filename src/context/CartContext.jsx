@@ -6,6 +6,7 @@ import {
   REMOVE_FROM_CART,
   EMPTY_CART,
   CHANGE_PRODUCT_AMOUNT,
+  UPDATE_AMOUNTS,
 } from "../actions.js";
 
 const CartProvider = React.createContext();
@@ -46,6 +47,7 @@ const CartContext = ({ children }) => {
   };
 
   useEffect(() => {
+    dispatch({ type: UPDATE_AMOUNTS });
     localStorage.setItem("cart", JSON.stringify(state.cart));
   }, [state.cart]);
   return (
