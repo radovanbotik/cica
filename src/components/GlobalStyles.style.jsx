@@ -1,5 +1,8 @@
 import { createGlobalStyle } from "styled-components";
 import bgnoise from "../assets/bg-noise.jpg";
+import wall from "../assets/wall.jpg";
+import crackedwall from "../assets/cracked-wall.jpg";
+import poster3 from "../assets/poster3.jpg";
 
 export const GlobalStyle = createGlobalStyle`
     *{
@@ -19,14 +22,20 @@ export const GlobalStyle = createGlobalStyle`
     --vspace-3: calc(0.5 * var(--space) * 1rem);
 
 
-    --yellow: #ffde0f;
-    --purple:#8b49f9;
-    --blue:#384045;
-    --green:#dc88a6;
+    --bg:#2a2629;
+    --bg-small:#121211;
+    --text:#fad326;
+    --buttons:#fffbf7;
+    --accent:#f7dccf;
+
+    /* --yellow: #ffde0f;
+    --purple:#9fc836;
+    --blue:#1f2133;
+    --green:#dc88a6; */
     /* --pink:#d816b3; */
     /* --pink:#7f49dd; */
-    --pink:#de1799;
-    --grey:#f9f8f1;
+    /* --pink:#d155ae;
+    --grey:#fad129; */
 
     --volkhov: 'Volkhov', serif;
     --nunito: 'Nunito Sans', sans-serif;
@@ -43,12 +52,14 @@ body {
     max-width: calc(25 * var(--vspace-2));
     margin: 0 auto;
     font-family: 'Volkhov', serif;
-    background-color: var(--green);
-    color: var(--blue);
+    background-image: url(${poster3});
+    background-size:cover;
+    color: var(--text);
     position: relative;
-    background-image:linear-gradient(to bottom, rgba(206, 206, 208, 0.62), var(--pink)),
-    url(${bgnoise});
+     background-image:linear-gradient(to left, #2a26291f, var(--bg)),
+    url(${poster3}); 
     
+    /* background-image:linear-gradient(to bottom, rgba(206, 206, 208, 0.62), #038ccc81), */
     
 
    }

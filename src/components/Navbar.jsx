@@ -32,7 +32,7 @@ export default function Navbar() {
           <NavigationLink to="/">About</NavigationLink>
           <NavigationLink
             to="/shop"
-            fontcolor="var(--pink)"
+            fontcolor="var(--buttons)"
             // dashedborder="2px dashed var(--pink)"
           >
             BUY MY STUFF
@@ -76,10 +76,10 @@ const Navigation = styled.nav`
   flex-direction: column;
   padding: var(--vspace-3);
   margin: var(--vspace-3);
-  /* border-bottom: 16px solid var(--blue); */
 `;
 const NavigationLinks = styled.div`
   display: none;
+  /* color: var(--accent); */
 
   /* DISPLAY LINKS FOR BIG DEVICES */
   @media (min-width: 500px) {
@@ -91,9 +91,9 @@ const NavigationLinks = styled.div`
   }
 `;
 const NavigationLink = styled(Link)`
+  text-shadow: -1px 2px 5px var(--bg-small);
+
   white-space: nowrap;
-  color: ${props => props.fontcolor || "inherit"};
-  border: ${props => props.dashedborder || "none"};
   text-decoration: none;
   padding: 0 var(--vspace-3);
   font-family: var(--nunito);
@@ -109,18 +109,18 @@ const NavigationLink = styled(Link)`
       font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 48;
     } */
     .icon {
+      color: var(--buttons);
       grid-column: 1/2;
       grid-row: 1/2;
       font-size: 2rem;
       font-variation-settings: "FILL" 1;
-      color: var(--blue);
     }
     .item-count {
       font-weight: 400;
       grid-column: 1/2;
       grid-row: 1/2;
       font-size: 0.75rem;
-      color: var(--grey);
+      color: var(--bg-small);
       transform: translateY(4px);
       z-index: 2;
     }
@@ -139,7 +139,7 @@ const NavigationLink = styled(Link)`
 `;
 const Logo = styled(Link)`
   margin: 0 auto;
-
+  text-shadow: -1px 2px 5px var(--bg-small);
   @media (min-width: 500px) {
     margin: unset;
     margin-right: auto;

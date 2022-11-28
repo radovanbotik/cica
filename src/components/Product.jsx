@@ -21,7 +21,7 @@ export default function Product(props) {
         </div>
         <div className="info-control">
           <h5>{name}</h5>
-          <p>Price:{formatPrice(price)}</p>{" "}
+          <h5>{formatPrice(price)}</h5>{" "}
           {!grid_view && (
             <div className="description-control">
               <p>{description}</p>
@@ -44,7 +44,7 @@ const LinkWrap = styled(Link)`
   color: inherit;
 `;
 const ProductCard = styled(CardStyle)`
-  /* max-width: 300px; */
+  max-width: 350px;
   height: 100%;
   .image-control {
     height: 0;
@@ -60,13 +60,15 @@ const ProductCard = styled(CardStyle)`
     }
   }
   .info-control {
+    padding: var(--vspace-3);
     height: 100%;
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
+    border: 2px solid var(--text); /* flex-direction: column; */
     h5 {
       margin: 0;
     }
-    p {
+    h4 {
       margin: 0;
     }
   }

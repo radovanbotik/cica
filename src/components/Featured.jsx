@@ -19,7 +19,7 @@ export default function Featured() {
   if (productsFeatured)
     return (
       <Section>
-        <h2>Hot right now:</h2>
+        <h1>Hot right now:</h1>
         {/* <div className="cards">
           {window.innerWidth > 640 && window.innerWidth < 900
             ? productsFeatured.slice(0, 2).map(entry => {
@@ -39,9 +39,18 @@ export default function Featured() {
 }
 
 const Section = styled.section`
-  h2 {
+  /* display: grid;
+  justify-content: center; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  h1 {
     font-weight: 700;
     text-transform: uppercase;
+    text-align: center;
+    text-shadow: -4px 4px 0px var(--bg-small);
+    /* border: 2px solid var(--bg); */
   }
   .cards {
     display: grid;

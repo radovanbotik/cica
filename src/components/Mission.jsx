@@ -13,11 +13,11 @@ export default function Mission() {
           const { icon, id, target, title } = entry;
           return (
             <Card key={id}>
-              <span className="material-symbols-outlined close-icon">
+              {/* <span className="material-symbols-outlined close-icon">
                 close
-              </span>
+              </span> */}
               {/* <h4>Goal #{id}:</h4> */}
-              <h3>{title}</h3>
+              <h4>{title}</h4>
 
               <p className="short">{target}</p>
 
@@ -44,9 +44,11 @@ const Section = styled.section`
   h2 {
     font-weight: 700;
     text-transform: uppercase;
+    text-align: center;
   }
 `;
 const Control = styled.div`
+  padding: var(--vspace-2);
   display: grid;
   gap: var(--vspace-3);
   /* @media (min-width: 700px) {
@@ -54,12 +56,14 @@ const Control = styled.div`
   } */
 `;
 const Card = styled(CardStyle)`
+  padding: var(--vspace-2);
+
   .close-icon {
     justify-self: end;
     cursor: pointer;
   }
   h4 {
-    justify-self: start;
+    justify-self: center;
     border-bottom: 8px solid var(--purple);
     color: var(--purple);
   }
@@ -75,8 +79,8 @@ const Card = styled(CardStyle)`
     -webkit-line-clamp: var(--max-lines);
   }
   button {
-    background-color: var(--purple);
-    color: inherit;
+    background-color: var(--buttons);
+    color: var(--bg);
     font-family: inherit;
     text-transform: uppercase;
     padding: 0.5rem 2rem;

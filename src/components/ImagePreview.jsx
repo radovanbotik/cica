@@ -25,13 +25,16 @@ export default function ImagePreview({ images = [{ url: "" }] }) {
 const Preview = styled.div`
   /* display: flex;
   flex-direction: column; */
+  padding: var(--vspace-2);
   display: grid;
   gap: var(--vspace-3);
+  /* border: 16px solid var(--text); */
+  /* box-shadow: 0px 0px 0px 16px var(--text); */
+
   .big-image {
     position: relative;
     height: 0;
     padding-top: 100%;
-    background-color: var(--green);
     img {
       position: absolute;
       top: 0;

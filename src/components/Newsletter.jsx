@@ -21,7 +21,6 @@ const Control = styled.div`
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  /* justify-content: space-evenly; */
   gap: var(--vspace-3);
   h4 {
     margin: 0;
@@ -30,27 +29,23 @@ const Control = styled.div`
 `;
 const Form = styled.form`
   flex-shrink: 0;
-  transform: translateY(-4px);
   .field {
-    border: 1px solid var(--blue);
-    box-shadow: 2px 4px 0px 0px var(--blue);
-    background-color: var(--grey);
+    display: flex;
   }
   input {
     padding: 0.5rem;
-    border: 1px solid black;
     border-right: 0;
     border: 0;
-    background-color: var(--grey);
+    background-color: var(--buttons);
+    border-right: 8px solid var(--bg);
   }
   button {
-    height: 100%;
-    /* border: 1px solid black; */
+    padding: var(--vspace-3);
+    display: inline-block;
     border: 0;
-    padding: 0.5rem;
-    border-left: 0;
-    font-family: inherit;
-    background-color: var(--purple);
+    font-family: var(--nunito);
+    background-color: var(--buttons);
+    color: var(--bg);
     text-transform: uppercase;
     cursor: pointer;
     /* transform: scale(0.97); */

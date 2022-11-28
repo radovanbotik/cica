@@ -62,6 +62,7 @@ const Section = styled.section`
   display: grid;
 `;
 const ProductDisplay = styled(CardStyle)`
+  border: 16px solid var(--buttons);
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--vspace-3);
