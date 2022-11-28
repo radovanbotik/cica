@@ -21,10 +21,12 @@ export const GlobalStyle = createGlobalStyle`
 
     --yellow: #ffde0f;
     --purple:#8b49f9;
-    --blue:#1f1d2f;
+    --blue:#384045;
     --green:#dc88a6;
-    --pink:#d816b3;
-    --grey:#ceced0;
+    /* --pink:#d816b3; */
+    /* --pink:#7f49dd; */
+    --pink:#de1799;
+    --grey:#f9f8f1;
 
     --volkhov: 'Volkhov', serif;
     --nunito: 'Nunito Sans', sans-serif;
@@ -44,7 +46,7 @@ body {
     background-color: var(--green);
     color: var(--blue);
     position: relative;
-    background-image:linear-gradient(to bottom, rgba(206, 206, 208, 0.62), var(--blue)),
+    background-image:linear-gradient(to bottom, rgba(206, 206, 208, 0.62), var(--pink)),
     url(${bgnoise});
     
     

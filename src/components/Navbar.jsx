@@ -3,13 +3,13 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import styled from "styled-components";
 import { useGlobalCartContext } from "../context/CartContext";
-import cicaLogo from "../assets/cica-logo.png";
-import cicaLogoLaser from "../assets/cica-logo-laser.png";
 
 export default function Navbar() {
   const { total_item_amount } = useGlobalCartContext();
-  const [logo, setLogo] = useState(cicaLogo);
   const [isOpen, setIsOpen] = useState(false);
+  const iconToggle = {
+    fontVariationSettings: `${total_item_amount ? "'FILL' 1" : "'FILL' 0"}`,
+  };
   return (
     <Navigation>
       <NavigationBigDevice>
@@ -41,8 +41,12 @@ export default function Navbar() {
           <NavigationLink to="/login">Login</NavigationLink> */}
           <NavigationLink to="/cart">
             {/* Cart */}
-            <div className="material-symbols-outlined icon">shopping_bag</div>
-            <div className="item-count">{total_item_amount}</div>
+            <div className="material-symbols-outlined icon" style={iconToggle}>
+              shopping_bag
+            </div>
+            <div className="item-count">
+              {total_item_amount > 0 && total_item_amount}
+            </div>
           </NavigationLink>
         </NavigationLinks>
         <OpenClose onClick={() => setIsOpen(prev => !prev)}>
