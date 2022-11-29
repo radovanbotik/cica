@@ -57,7 +57,7 @@ export default function ProductsControls() {
             name="price"
             id="price"
             min={min_price}
-            max={max_price}
+            max={max_price + 1}
             value={price}
             onChange={setControls}
           />
@@ -141,12 +141,9 @@ const Control = styled.div`
       appearance: none;
       background: transparent;
       cursor: pointer;
-
-      /* width: 15rem; */
     }
     input[type="range"]::-webkit-slider-runnable-track {
       background-color: var(--buttons);
-      /* height: 0.5rem; */
       height: 0.2rem;
     }
     input[type="range"]::-webkit-slider-thumb {
