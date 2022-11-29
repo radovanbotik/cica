@@ -1,11 +1,11 @@
 import React from "react";
 import styled from "styled-components";
-import icon from "../assets/icon-chicken.png";
+import hearticon from "../assets/hearticon.png";
 
 export default function Rating({ stars, reviews }) {
   const rating = Math.ceil(stars);
   const iconArray = Array.from({ length: stars });
-  iconArray.fill(icon);
+  iconArray.fill(hearticon);
 
   return (
     <RatingWrap>

@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { useState } from "react";
+import poster4 from "../assets/poster4.jpg";
 export default function ImagePreview({ images = [{ url: "" }] }) {
   const [big, setBig] = useState(images[0]);
   return (
@@ -25,13 +26,16 @@ export default function ImagePreview({ images = [{ url: "" }] }) {
 const Preview = styled.div`
   /* display: flex;
   flex-direction: column; */
+  padding: var(--vspace-2);
   display: grid;
   gap: var(--vspace-3);
+  /* border: 16px solid var(--text); */
+  /* box-shadow: 0px 0px 0px 16px var(--text); */
+
   .big-image {
     position: relative;
     height: 0;
     padding-top: 100%;
-    background-color: var(--green);
     img {
       position: absolute;
       top: 0;

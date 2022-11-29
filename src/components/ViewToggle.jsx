@@ -23,7 +23,10 @@ export default function ViewToggle() {
           <span className="material-symbols-outlined icon">list</span>
         </Icon>
       </div>
-      <span>{filtered_products.length} products shown</span>
+      <span>
+        {filtered_products.length}{" "}
+        {filtered_products.length > 1 ? "products shown" : "product shown"}
+      </span>
       <hr />
       <form>
         <label htmlFor="sort">sort by</label>
@@ -34,14 +37,10 @@ export default function ViewToggle() {
           onChange={e => setSort(e)}
           value={sort_by}
         >
-          <option value="price-lowest-to-highest">
-            price lowest to highest
-          </option>
-          <option value="price-highest-to-lowest">
-            price highets to lowest
-          </option>
-          <option value="name-AZ">name A-Z</option>
-          <option value="name-ZA">name Z-A</option>
+          <option value="price-lowest-to-highest">no money big money</option>
+          <option value="price-highest-to-lowest">big money no money</option>
+          <option value="name-AZ">alphabet from the start</option>
+          <option value="name-ZA">alphabet from an end</option>
         </select>
       </form>
     </Control>
@@ -49,11 +48,15 @@ export default function ViewToggle() {
 }
 
 const Control = styled.div`
+  background-color: var(--bg-small);
+  padding: var(--vspace-3);
   margin-bottom: 1ex;
   display: flex;
+  flex-wrap: wrap;
+
   align-items: center;
   gap: 1ex;
-
+  text-transform: uppercase;
   .toggle {
     display: flex;
     align-items: center;
@@ -66,10 +69,19 @@ const Control = styled.div`
     /* color: gray; */
     background-color: var(--blue);
   }
+  form {
+    display: flex;
+    gap: var(--vspace-3);
+    align-self: center;
+    select {
+      text-transform: uppercase;
+    }
+  }
 `;
 const Icon = styled.div`
   cursor: pointer;
-  background-color: var(--grey);
+  background-color: var(--buttons);
+  color: var(--bg-small);
   display: grid;
   place-items: center;
   /* border: 1px solid var(--purple); */

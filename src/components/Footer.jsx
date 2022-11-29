@@ -21,7 +21,10 @@ const FooterWrap = styled.footer`
 `;
 
 const Control = styled.section`
-  background-color: var(--grey);
+  background-color: var(--bg);
   display: grid;
   align-items: center;
+  sup {
+    text-align: left;
+  }
 `;

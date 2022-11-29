@@ -13,6 +13,9 @@ import {
   SingleProductControls,
 } from "../components";
 import { formatPrice } from "../utils/formatPrice";
+import sky from "../assets/sky.jpg";
+import face from "../assets/face.jpg";
+import poster4 from "../assets/poster4.jpg";
 
 export default function SingleProduct() {
   const url = `https://cica-serverless.netlify.app/.netlify/functions/product/?id=`;
@@ -44,11 +47,15 @@ export default function SingleProduct() {
         <ProductDisplay>
           <ImagePreview images={image} />
           <div className="details">
-            <h5>{name}</h5>
-            <Rating stars={rating} />
-            <h5>{formatPrice(price)}</h5>
-            <p>{description}</p>
-            <p>Avaibility: {stock > 0 ? "In Stock" : "Out Of Stock"} </p>
+            <div className="name-and-rating">
+              <h2 className="product-name">{name}</h2>
+              <Rating stars={rating} />
+            </div>
+            <h5 className="product-price">{formatPrice(price)}</h5>
+            <p className="product-description">{description}</p>
+            <p className="product-avaibility">
+              Avaibility: {stock > 0 ? "In Stock" : "Out Of Stock"}{" "}
+            </p>
             {stock > 0 && (
               <SingleProductControls {...product.fields} airtableID={id} />
             )}
@@ -61,13 +68,35 @@ export default function SingleProduct() {
 const Section = styled.section`
   display: grid;
 `;
-const ProductDisplay = styled(CardStyle)`
+const ProductDisplay = styled.article`
+  display: grid;
+  box-shadow: -8px 4px 40px 0px var(--bg-small);
+  padding: var(--vspace-3);
+  border: 1px solid var(--buttons);
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--vspace-3);
+  background-image: linear-gradient(to left, #000000b9, var(--bg-small)),
+    url(${poster4});
+  background-size: cover;
   @media (min-width: 700px) {
     grid-template-columns: 1fr 1fr;
     gap: var(--vspace-2);
   }
-  /* background-color: var(--purple); */
+  .details {
+    color: var(--buttons);
+    background-size: cover;
+    border: 1px solid white;
+    padding: var(--vspace-2);
+    .name-and-rating {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      text-transform: uppercase;
+      h2 {
+        margin: 0;
+      }
+    }
+  }
 `;

@@ -3,7 +3,7 @@ import { useState } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { useGlobalCartContext } from "../context/CartContext";
-// import ButtonTEMP from "./Button";
+import face2 from "../assets/face2.jpg";
 
 export default function SingleProductControls(props) {
   const { airtableID: id } = props;
@@ -30,36 +30,38 @@ export default function SingleProductControls(props) {
   };
   return (
     <Control>
-      <div className="color-control">
-        <span>comes in:</span>
-        <div className="colors-options">
-          {colorArray.map((entry, index) => {
-            return (
-              <ColorCircle
-                key={index}
-                bg={entry}
-                onClick={() => setColorPrimary(colorArray[index])}
-                fullOpacity={colorPrimary === entry}
-              ></ColorCircle>
-            );
-          })}
+      <div className="controls">
+        <div className="color-control">
+          <span>comes in:</span>
+          <div className="colors-options">
+            {colorArray.map((entry, index) => {
+              return (
+                <ColorCircle
+                  key={index}
+                  bg={entry}
+                  onClick={() => setColorPrimary(colorArray[index])}
+                  fullOpacity={colorPrimary === entry}
+                ></ColorCircle>
+              );
+            })}
+          </div>
         </div>
-      </div>
-      <div className="amount-control">
-        <span className="amount">Amount:</span>
-        <span
-          className="material-symbols-outlined icon"
-          onClick={decrementAmount}
-        >
-          remove
-        </span>
-        <span className="amount">{productAmount}</span>
-        <span
-          className="material-symbols-outlined icon"
-          onClick={incrementAmount}
-        >
-          add
-        </span>
+        <div className="amount-control">
+          <span className="amount">Amount:</span>
+          <span
+            className="material-symbols-outlined icon"
+            onClick={decrementAmount}
+          >
+            remove
+          </span>
+          <span className="amount">{productAmount}</span>
+          <span
+            className="material-symbols-outlined icon"
+            onClick={incrementAmount}
+          >
+            add
+          </span>
+        </div>
       </div>
       <Button
         to="/cart"
@@ -67,7 +69,7 @@ export default function SingleProductControls(props) {
           addToCart(id, color, productAmount, name, price, image[0].url, stock)
         }
       >
-        Add to cart
+        <span>COP IT</span>
       </Button>
     </Control>
   );
@@ -79,7 +81,11 @@ const Control = styled.div`
   flex-wrap: wrap;
   justify-content: space-between;
   gap: var(--vspace-3);
-
+  .controls {
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--bg);
+  }
   .color-control {
     display: flex;
     align-items: center;
@@ -125,11 +131,13 @@ const ColorCircle = styled.span`
   cursor: pointer;
 `;
 const Button = styled(Link)`
+  font-family: var(--nunito);
+  background-color: var(--buttons);
+  color: var(--bg-small);
+  text-align: center;
   text-decoration: none;
   text-transform: uppercase;
   padding: 1rem 2rem;
-  background-color: var(--purple);
-  color: var(--blue);
   cursor: pointer;
   border: 1px solid var(--blue);
   box-shadow: 2px 4px 0px 0px var(--blue);

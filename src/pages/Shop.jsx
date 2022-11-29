@@ -1,14 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 import { Products, ProductsControls, ViewToggle } from "../components";
+import sky from "../assets/sky.jpg";
 
 export default function Shop() {
   return (
     <Section>
-      <section className="title-control">
-        <hr />
-        <h1>Get that drip</h1>
-      </section>
+      <h1>Get that drip</h1>
       <Control>
         <div className="filter-control">
           <ProductsControls />
@@ -23,28 +21,13 @@ export default function Shop() {
 }
 
 const Section = styled.section`
-  .title-control {
-    padding-top: 0;
-    padding-bottom: 0;
-    text-align: right;
-    display: flex;
-    gap: 4ex;
-    hr {
-      margin-right: auto;
-      width: 100%;
-      /* height: 20px; */
-      height: 8px;
-      align-self: center;
-      background-color: var(--blue);
-      border-width: 0;
-      border: none;
-      /* border-bottom: 12px double var(--pink); */
-      /* border-top: medium double white; */
+  h1 {
+    padding: 0 var(--vspace-2);
+    @media (min-width: 600px) {
+      text-align: left;
     }
-
-    h1 {
-      white-space: nowrap;
-    }
+    text-align: center;
+    text-shadow: 0px 0px 100px var(--buttons);
   }
   /* margin: var(--vspace-3); */
 `;

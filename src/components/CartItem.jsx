@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { formatPrice } from "../utils/formatPrice";
 import { useGlobalCartContext } from "../context/CartContext";
+import sky from "../assets/sky.jpg";
 
 export default function CartItem(props) {
   const { amount, id, image, name, price, stock } = props;
@@ -21,10 +22,8 @@ export default function CartItem(props) {
           <img src={image} alt={name} />
         </div>
 
-        <div className="product-name">
+        <div className="product-name-price">
           <span>{name}</span>
-        </div>
-        <div className="product-price">
           <span>{formatPrice(price)}</span>
         </div>
       </ItemHeader>
@@ -55,22 +54,16 @@ const Control = styled.div`
   padding: var(--vspace-3);
   display: flex;
   justify-content: space-between;
-  background-color: sandybrown;
+  background-color: var(--bg-small);
+  background-image: url(${sky});
+  background-size: cover;
 `;
 const ItemHeader = styled.div`
-  padding: var(--vspace-3);
-  background-color: gold;
-  display: grid;
-  grid-template-columns: 1fr min-content;
-  grid-template-rows: 1fr 1fr;
+  display: flex;
   gap: var(--vspace-3);
   .image-control {
     grid-row: 1/3;
-    /* width: 100%; */
-    /* height: 90px; */
-    max-width: 100px;
-    /* height: 0; */
-    /* padding-top: 100%; */
+    max-width: 80px;
     position: relative;
     img {
       display: block;
@@ -82,13 +75,13 @@ const ItemHeader = styled.div`
       object-fit: cover;
     }
   }
-  .product-name {
-    grid-row: 1;
-    grid-column: 2;
-  }
-  .product-price {
-    grid-row: 2;
-    grid-column: 2;
+
+  .product-name-price {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--vspace-3);
+    text-transform: uppercase;
   }
 `;
 
@@ -97,8 +90,6 @@ const ItemControls = styled.div`
   align-items: center;
   gap: var(--vspace-3);
   padding: var(--vspace-3);
-  /* border: 1px solid var(--blue);
-  box-shadow: 2px 4px 0px 0px var(--blue); */
   .amount {
     flex-basis: 3ex;
     display: grid;

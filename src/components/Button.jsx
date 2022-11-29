@@ -11,7 +11,7 @@ export default function Button(props) {
 }
 
 const ButtonStyle = styled.button`
-  color: var(--blue);
+  color: var(--text);
   font-family: var(--nunito);
   text-decoration: none;
   text-transform: uppercase;

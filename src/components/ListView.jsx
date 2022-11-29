@@ -16,6 +16,6 @@ const Control = styled.div`
   /* max-width: 300px; */
   display: grid;
   grid-auto-flow: row;
-  justify-content: flex-end;
+  /* justify-content: flex-end; */
   gap: var(--vspace-3);
 `;
