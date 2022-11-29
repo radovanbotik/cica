@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import { mission } from "../utils/mission";
 import { CardStyle } from "./Card";
-import confused from "../assets/confused.jpg";
 import cicadrago from "../assets/cica-drago.png";
 import cicabalboa from "../assets/cica-balboa.png";
 
@@ -14,8 +13,8 @@ export default function Mission() {
         {mission.map((entry, index) => {
           const { icon, id, target, title } = entry;
           return (
-            <Card key={id} bg={confused}>
-              <p className="short">
+            <Card key={id}>
+              <div className="short">
                 {target}
                 <div className="images">
                   <div className="control">
@@ -29,7 +28,7 @@ export default function Mission() {
                     <img src={cicadrago} alt="enemy" />
                   </div>
                 </div>
-              </p>
+              </div>
               <button
                 onClick={e => {
                   e.target.previousElementSibling.classList.toggle("short");
@@ -68,7 +67,7 @@ const Control = styled.div`
 const Card = styled.article`
   padding: var(--vspace-2);
   width: 100%;
-  p {
+  div {
     .images {
       display: flex;
       flex-wrap: wrap;

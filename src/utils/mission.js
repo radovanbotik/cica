@@ -4,7 +4,7 @@ export const mission = [
     icon: "icon",
     title: "Get Buff",
     target:
-      "Rocky Balboa (ME, GOOD CICA) accompanies his friend Apollo Creed to the ring in a boxing match against a Russian Boxer named Ivan Drago. Drago is too strong for Creed, and unfortunately kills him in his match (THIS DIDNT HAPPEN BUT HE KEEPS EATING FROM MY BOWL) . Balboa blames himself for Creed's death and is determined to defeat Drago in a boxing match.",
+      "Rocky Balboa (ME, GOOD CICA) accompanies his friend Apollo Creed to the ring in a boxing match against a Russian Boxer named Ivan Drago(BAD CICA). Drago is too strong for Creed, and unfortunately kills him in his match (THIS DIDNT HAPPEN BUT HE KEEPS EATING FROM MY BOWL) . Balboa blames himself for Creed's death and is determined to defeat Drago in a boxing match.",
   },
   // {
   //   id: 2,

@@ -3,7 +3,6 @@ import { useState } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { useGlobalCartContext } from "../context/CartContext";
-import face2 from "../assets/face2.jpg";
 
 export default function SingleProductControls(props) {
   const { airtableID: id } = props;

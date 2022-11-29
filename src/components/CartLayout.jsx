@@ -27,8 +27,12 @@ const Control = styled.section`
   gap: 1ex;
 `;
 const Buttons = styled.div`
+  padding: var(--vspace-3);
   display: flex;
+  flex-wrap: wrap;
+  gap: var(--vspace-3);
   justify-content: space-between;
+  justify-content: end;
 `;
 const Button = styled(Link)`
   color: var(--bg-small);

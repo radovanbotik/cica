@@ -18,7 +18,7 @@ const Control = styled.div`
   display: grid;
   place-items: center;
   padding: var(--vspace-3);
-  background-color: var(--grey);
+  background-color: var(--bg-small);
   margin-bottom: 2ex;
   /* border: 2px solid var(--blue); */
   /* border: 2px solid var(--grey);

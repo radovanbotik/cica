@@ -13,8 +13,6 @@ import {
   SingleProductControls,
 } from "../components";
 import { formatPrice } from "../utils/formatPrice";
-import sky from "../assets/sky.jpg";
-import face from "../assets/face.jpg";
 import poster4 from "../assets/poster4.jpg";
 
 export default function SingleProduct() {
