@@ -24,4 +24,7 @@ const Control = styled.section`
   background-color: var(--bg);
   display: grid;
   align-items: center;
+  sup {
+    text-align: left;
+  }
 `;

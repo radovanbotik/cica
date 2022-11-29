@@ -52,7 +52,6 @@ body {
     max-width: calc(25 * var(--vspace-2));
     margin: 0 auto;
     font-family: 'Volkhov', serif;
-    background-image: url(${poster3});
     background-size:cover;
     color: var(--text);
     position: relative;

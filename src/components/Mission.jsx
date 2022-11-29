@@ -2,25 +2,18 @@ import React from "react";
 import styled from "styled-components";
 import { mission } from "../utils/mission";
 import { CardStyle } from "./Card";
-import { useState, useRef } from "react";
+import confused from "../assets/confused.jpg";
 
 export default function Mission() {
   return (
     <Section>
-      <h2>Why I need your meowney:</h2>
+      <h2>I am a cat, why I need the dough?</h2>
       <Control>
         {mission.map((entry, index) => {
           const { icon, id, target, title } = entry;
           return (
-            <Card key={id}>
-              {/* <span className="material-symbols-outlined close-icon">
-                close
-              </span> */}
-              {/* <h4>Goal #{id}:</h4> */}
-              <h4>{title}</h4>
-
+            <Card key={id} bg={confused}>
               <p className="short">{target}</p>
-
               <button
                 onClick={e => {
                   e.target.previousElementSibling.classList.toggle("short");
@@ -55,24 +48,18 @@ const Control = styled.div`
     grid-template-columns: 1fr 1fr;
   } */
 `;
-const Card = styled(CardStyle)`
+const Card = styled.article`
   padding: var(--vspace-2);
+  width: 100%;
+  /* display: grid; */
+  /* box-shadow: -8px 4px 40px 0px var(--bg-small); */
 
-  .close-icon {
-    justify-self: end;
-    cursor: pointer;
-  }
   h4 {
     justify-self: center;
-    border-bottom: 8px solid var(--purple);
-    color: var(--purple);
   }
-  h3 {
-    color: var(--purple);
-  }
-  .short {
-    --max-lines: 3;
 
+  .short {
+    --max-lines: 2;
     overflow: hidden;
     display: -webkit-box;
     -webkit-box-orient: vertical;

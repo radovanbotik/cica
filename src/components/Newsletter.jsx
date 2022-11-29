@@ -4,7 +4,7 @@ import styled from "styled-components";
 export default function Newsletter() {
   return (
     <Control>
-      <h4>Join my newsletter and get a hefty discount!</h4>
+      <h3>Let's stay in touch</h3>
       <Form action="https://formspree.io/f/xeqddwdw" method="POST">
         <div className="field">
           <input type="text" name="email" />
@@ -22,9 +22,11 @@ const Control = styled.div`
   flex-wrap: wrap;
   align-items: center;
   gap: var(--vspace-3);
-  h4 {
+  h3 {
+    font-family: var(--nunito);
     margin: 0;
     margin-right: auto;
+    align-self: end;
   }
 `;
 const Form = styled.form`
@@ -33,21 +35,20 @@ const Form = styled.form`
     display: flex;
   }
   input {
-    padding: 0.5rem;
+    padding: 0.5rem var(--vspace-3);
     border-right: 0;
-    border: 0;
+    /* border: 0; */
     background-color: var(--buttons);
-    border-right: 8px solid var(--bg);
+    border-right: 4px solid var(--bg);
   }
   button {
-    padding: var(--vspace-3);
-    display: inline-block;
-    border: 0;
-    font-family: var(--nunito);
     background-color: var(--buttons);
     color: var(--bg);
+    font-family: inherit;
     text-transform: uppercase;
+    padding: 0.5rem var(--vspace-3);
     cursor: pointer;
+    /* border: 0; */
     /* transform: scale(0.97); */
     /* &:hover span {
       font-size: 1rem;

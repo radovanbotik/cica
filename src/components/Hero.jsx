@@ -5,6 +5,8 @@ import cicaHeroLaser from "../assets/cica-logo-laser.png";
 import ransomnote1 from "../assets/ransomnote1.png";
 import { Link } from "react-router-dom";
 import poster3 from "../assets/poster3.jpg";
+import wat from "../assets/wat.png";
+import sky from "../assets/sky.jpg";
 
 // import Button from "./Button";
 
@@ -20,8 +22,15 @@ export default function Hero() {
             <img src={ransomnote1} alt="" />
           </div>
         </div>
-        <HeroImage className="image">
-          <img src={graphic ? cicaHeroLaser : cicaHero} alt="hero-image" />
+        <HeroImage>
+          <img
+            src={graphic ? cicaHeroLaser : cicaHero}
+            alt="hero-image"
+            className="cica-image"
+          />
+          {graphic && (
+            <img src={wat} alt="image of crown" className="crown-image" />
+          )}
         </HeroImage>
         <div
           className="button-wrap"
@@ -45,6 +54,7 @@ export default function Hero() {
 
 const Section = styled.section`
   display: grid;
+  /* margin-bottom: var(--vspace-1); */
   /* gap: var(--vspace-1); */
 `;
 const Banner = styled.div`
@@ -54,6 +64,8 @@ const Banner = styled.div`
       #f1f4db
     ),
     url(${poster3}); */
+  background-image: url(${sky});
+  background-size: cover;
   margin-bottom: var(--vspace-1);
   position: relative;
   display: grid;
@@ -69,7 +81,7 @@ const Banner = styled.div`
 
   @media (min-width: 700px) {
     grid-template-areas:
-      "col1 col2"
+      "col1 image"
       "button button";
   }
   .col1 {
@@ -104,17 +116,35 @@ const Banner = styled.div`
   }
 `;
 const HeroImage = styled.div`
+  grid-area: image;
+  /* width: 100%; */
   max-width: 300px;
   min-width: 150px;
-
+  min-height: 250px;
+  position: relative;
   @media (min-width: 700px) {
     min-width: 200px;
   }
   /* background-color: var(--pink); */
   /* clip-path: circle(50% at 20% 40%); */
-  img {
+  img.cica-image {
     display: block;
     width: 100%;
+    position: absolute;
+    height: 100%;
+    object-fit: cover;
+    top: 0;
+    left: 0;
+    z-index: 2;
+  }
+  img.crown-image {
+    display: block;
+    width: 100%;
+    position: absolute;
+    height: 100%;
+    object-fit: contain;
+    top: -90px;
+    left: 90px;
   }
 `;
 const Button = styled(Link)`

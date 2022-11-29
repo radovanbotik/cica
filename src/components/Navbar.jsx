@@ -3,6 +3,9 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import styled from "styled-components";
 import { useGlobalCartContext } from "../context/CartContext";
+import crown from "../assets/crown.png";
+import doodle from "../assets/doodle.png";
+import underline from "../assets/underline.png";
 
 export default function Navbar() {
   const { total_item_amount } = useGlobalCartContext();
@@ -14,18 +17,9 @@ export default function Navbar() {
     <Navigation>
       <NavigationBigDevice>
         <Logo to="/">
-          {/* <div className="logo-control">
-            <img
-              src={logo}
-              alt="site logo"
-              onMouseOver={() => {
-                setLogo(cicaLogoLaser);
-              }}
-              onMouseOut={() => {
-                setLogo(cicaLogo);
-              }}
-            />
-          </div> */}
+          <div className="image-control">
+            <img src={crown} alt="crown logo" />
+          </div>
           <span>urban cat.</span>
         </Logo>
         <NavigationLinks>
@@ -86,13 +80,11 @@ const NavigationLinks = styled.div`
     display: flex;
     align-items: center;
     align-items: flex-end;
-
     gap: 2ex;
   }
 `;
 const NavigationLink = styled(Link)`
   text-shadow: -1px 2px 5px var(--bg-small);
-
   white-space: nowrap;
   text-decoration: none;
   padding: 0 var(--vspace-3);
@@ -100,6 +92,7 @@ const NavigationLink = styled(Link)`
   font-weight: 800;
   display: grid;
   place-items: center;
+  position: relative;
   &:last-child {
     position: relative;
     display: grid;
@@ -125,16 +118,25 @@ const NavigationLink = styled(Link)`
       z-index: 2;
     }
   }
-  /* @media (min-width: 500px) {
-    border-left: 1px solid var(--blue);
-  } */
   &:visited,
   &:active {
     color: ${props => props.fontcolor || "inherit"};
   }
   &:hover:not(:last-child) {
-    /* text-decoration: var(--blue) solid underline 1px; */
-    color: var(--blue);
+    &:after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 20px;
+      left: 0;
+      /* left: 50%; */
+      /* transform: translate(-50%); */
+      background-image: url(${underline});
+      background-size: contain;
+      background-repeat: no-repeat;
+      z-index: 4;
+    }
   }
 `;
 const Logo = styled(Link)`
@@ -146,6 +148,7 @@ const Logo = styled(Link)`
   }
   position: relative;
   display: flex;
+  flex-direction: row-reverse;
   /* align-items: center; */
   align-items: flex-end;
   text-decoration: none;
@@ -156,19 +159,22 @@ const Logo = styled(Link)`
   font-weight: 800;
   font-size: 2rem;
   white-space: nowrap;
-  .logo-control {
+  .image-control {
     /* max-width: 150px; */
-    width: 80px;
-    height: 100%;
+    width: 36px;
+    height: 36px;
     position: relative;
+    transform: rotate(10deg);
     img {
       position: absolute;
-      left: 0;
-      top: 0;
+      /* left: -35px; */
+      /* top: -7px; */
+      top: -8px;
+      left: 4px;
       height: 100%;
       width: 100%;
       display: block;
-      object-fit: cover;
+      object-fit: contain;
     }
   }
 `;
@@ -176,12 +182,13 @@ const NavigationBigDevice = styled.div`
   display: flex;
   flex-direction: column;
   gap: 2ex;
+  overflow: visible;
   @media (min-width: 700px) {
     flex-direction: row;
     align-items: center;
   }
   height: 8rem;
-  padding: 1rem;
+  padding: var(--vspace-2);
 `;
 const NavigationSmallDevice = styled.div`
   display: flex;
