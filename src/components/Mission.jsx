@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import { mission } from "../utils/mission";
 import { CardStyle } from "./Card";
-import confused from "../assets/confused.jpg";
 import cicadrago from "../assets/cica-drago.png";
 import cicabalboa from "../assets/cica-balboa.png";
 
@@ -14,7 +13,7 @@ export default function Mission() {
         {mission.map((entry, index) => {
           const { icon, id, target, title } = entry;
           return (
-            <Card key={id} bg={confused}>
+            <Card key={id}>
               <div className="short">
                 {target}
                 <div className="images">

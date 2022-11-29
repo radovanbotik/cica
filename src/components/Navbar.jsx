@@ -4,7 +4,6 @@ import { useState } from "react";
 import styled from "styled-components";
 import { useGlobalCartContext } from "../context/CartContext";
 import crown from "../assets/crown.png";
-import doodle from "../assets/doodle.png";
 import underline from "../assets/underline.png";
 
 export default function Navbar() {
@@ -45,9 +44,9 @@ export default function Navbar() {
         </NavigationLinks>
         <OpenClose onClick={() => setIsOpen(prev => !prev)}>
           {isOpen ? (
-            <span className="material-symbols-outlined">close</span>
+            <span className="material-symbols-outlined icon">close</span>
           ) : (
-            <span className="material-symbols-outlined">menu</span>
+            <span className="material-symbols-outlined icon">menu</span>
           )}
         </OpenClose>
       </NavigationBigDevice>
@@ -93,6 +92,9 @@ const NavigationLink = styled(Link)`
   display: grid;
   place-items: center;
   position: relative;
+  .icon {
+    cursor: pointer;
+  }
   &:last-child {
     position: relative;
     display: grid;
@@ -198,6 +200,7 @@ const NavigationSmallDevice = styled.div`
   margin-bottom: 2ex;
 `;
 const OpenClose = styled.div`
+  cursor: pointer;
   align-self: center;
   /* HIDE BUTTON && NAVIGATION EXTENSION FOR BIG DEVICES*/
   @media (min-width: 500px) {
