@@ -15,7 +15,7 @@ export default function Mission() {
           const { icon, id, target, title } = entry;
           return (
             <Card key={id} bg={confused}>
-              <p className="short">
+              <div className="short">
                 {target}
                 <div className="images">
                   <div className="control">
@@ -29,7 +29,7 @@ export default function Mission() {
                     <img src={cicadrago} alt="enemy" />
                   </div>
                 </div>
-              </p>
+              </div>
               <button
                 onClick={e => {
                   e.target.previousElementSibling.classList.toggle("short");
@@ -68,7 +68,7 @@ const Control = styled.div`
 const Card = styled.article`
   padding: var(--vspace-2);
   width: 100%;
-  p {
+  div {
     .images {
       display: flex;
       flex-wrap: wrap;

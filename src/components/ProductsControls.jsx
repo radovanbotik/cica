@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import { useGlobalFilterContext } from "../context/FilterContext";
 import { formatPrice } from "../utils/formatPrice";
-import wall from "../assets/wall.jpg";
 import skull from "../assets/skull.png";
 
 export default function ProductsControls() {
@@ -73,7 +72,6 @@ export default function ProductsControls() {
 
 const Section = styled.section`
   /* background-color: var(--buttons); */
-  /* background-image: url(${wall}); */
   /* background-size: cover; */
   h5 {
     margin-top: 0;

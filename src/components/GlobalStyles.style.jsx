@@ -1,7 +1,4 @@
 import { createGlobalStyle } from "styled-components";
-import bgnoise from "../assets/bg-noise.jpg";
-import wall from "../assets/wall.jpg";
-import crackedwall from "../assets/cracked-wall.jpg";
 import poster3 from "../assets/poster3.jpg";
 
 export const GlobalStyle = createGlobalStyle`
@@ -60,7 +57,7 @@ body {
     position: absolute;
     width: 100%;
     height: 100%;
-    background-image: url(${bgnoise})} */
+    */
 
 p {
     margin: var(--vspace) 0; 
