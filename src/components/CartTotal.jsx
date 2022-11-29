@@ -28,11 +28,11 @@ const Button = styled(Link)`
   align-self: stretch;
   justify-self: stretch;
   text-align: center;
-  color: var(--blue);
+  color: var(--bg-small);
   font-family: var(--nunito);
   text-decoration: none;
   text-transform: uppercase;
-  background-color: var(--purple);
+  background-color: var(--buttons);
   padding: 1rem 2rem;
   /* border: 2px solid var(--grey);
   box-shadow: 4px 4px 0px 0px black; */

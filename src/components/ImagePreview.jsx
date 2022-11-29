@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { useState } from "react";
+import poster4 from "../assets/poster4.jpg";
 export default function ImagePreview({ images = [{ url: "" }] }) {
   const [big, setBig] = useState(images[0]);
   return (

@@ -29,6 +29,7 @@ export default function Product(props) {
 }
 
 const ProductCard = styled(Link)`
+  width: 100%;
   background-image: url(${sky});
   background-size: cover;
   box-shadow: -8px 4px 40px 0px var(--bg-small);
@@ -38,6 +39,7 @@ const ProductCard = styled(Link)`
   font-family: inherit;
   color: inherit;
   display: grid;
+  grid-template-rows: 200px min-content;
 
   .image-control {
     height: 0;
@@ -46,19 +48,24 @@ const ProductCard = styled(Link)`
     position: relative;
     /* clip-path: ellipse(80% 80% at 50% 20%); */
     img {
+      max-height: 200px;
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
+      object-position: 0 25%;
     }
   }
   .info-control {
-    width: 100%;
+    justify-self: center;
+    transform: translate(0px, -20px);
+    width: 90%;
     background-color: var(--bg-small);
     padding: var(--vspace-3);
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     border: 2px solid var(--text); /* flex-direction: column; */
     h5 {

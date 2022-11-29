@@ -149,14 +149,18 @@ const HeroImage = styled.div`
 `;
 const Button = styled(Link)`
   /* color: #fcfafc; */
+  /* display: block; */
   color: var(--bg);
   font-family: var(--nunito);
   text-decoration: none;
   text-transform: uppercase;
   padding: var(--vspace-3) var(--vspace-1);
-  /* border: 2px solid var(--grey); */
-  box-shadow: 4px 4px 0px 0px #070400;
+  /* border: 2px solid var(--bg-small); */
+  box-shadow: 0px 10px 40px 0px #070400;
   font-weight: 600;
   background-color: var(--buttons);
   cursor: pointer;
+  &:hover {
+    transform: scale(0.95);
+  }
 `;

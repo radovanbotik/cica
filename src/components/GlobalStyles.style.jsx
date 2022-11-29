@@ -28,14 +28,6 @@ export const GlobalStyle = createGlobalStyle`
     --buttons:#fffbf7;
     --accent:#f7dccf;
 
-    /* --yellow: #ffde0f;
-    --purple:#9fc836;
-    --blue:#1f2133;
-    --green:#dc88a6; */
-    /* --pink:#d816b3; */
-    /* --pink:#7f49dd; */
-    /* --pink:#d155ae;
-    --grey:#fad129; */
 
     --volkhov: 'Volkhov', serif;
     --nunito: 'Nunito Sans', sans-serif;
@@ -51,7 +43,8 @@ body {
     font-size: 1em;
     max-width: calc(25 * var(--vspace-2));
     margin: 0 auto;
-    font-family: 'Volkhov', serif;
+    /* font-family: 'Volkhov', serif; */
+    font-family: var(--nunito);
     background-size:cover;
     color: var(--text);
     position: relative;
@@ -79,6 +72,7 @@ h1 {
     margin: var(--vspace-1) 0 var(--vspace-1) 0;
     line-height: calc(4.25/var(--space)* var(--vspace));
   font-family: var(--nunito);
+
 
 }
 

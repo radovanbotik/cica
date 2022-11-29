@@ -3,6 +3,8 @@ import styled from "styled-components";
 import { mission } from "../utils/mission";
 import { CardStyle } from "./Card";
 import confused from "../assets/confused.jpg";
+import cicadrago from "../assets/cica-drago.png";
+import cicabalboa from "../assets/cica-balboa.png";
 
 export default function Mission() {
   return (
@@ -13,7 +15,21 @@ export default function Mission() {
           const { icon, id, target, title } = entry;
           return (
             <Card key={id} bg={confused}>
-              <p className="short">{target}</p>
+              <p className="short">
+                {target}
+                <div className="images">
+                  <div className="control">
+                    <span>GOOD CICA</span>
+                    <img src={cicabalboa} alt="enemy" />
+                  </div>
+                  <span className="versus">VS.</span>
+                  <div className="control">
+                    <span>BAD CICA</span>
+
+                    <img src={cicadrago} alt="enemy" />
+                  </div>
+                </div>
+              </p>
               <button
                 onClick={e => {
                   e.target.previousElementSibling.classList.toggle("short");
@@ -34,6 +50,7 @@ export default function Mission() {
 }
 
 const Section = styled.section`
+  box-shadow: inset 0px 0px 100px 0px black;
   h2 {
     font-weight: 700;
     text-transform: uppercase;
@@ -51,6 +68,29 @@ const Control = styled.div`
 const Card = styled.article`
   padding: var(--vspace-2);
   width: 100%;
+  p {
+    .images {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+    }
+    .versus {
+      align-self: center;
+      font-size: 2rem;
+    }
+    .control {
+      padding: var(--vspace-2);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-width: 200px;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
   /* display: grid; */
   /* box-shadow: -8px 4px 40px 0px var(--bg-small); */
 
@@ -68,7 +108,7 @@ const Card = styled.article`
   button {
     background-color: var(--buttons);
     color: var(--bg);
-    font-family: inherit;
+    font-family: var(--volkhov);
     text-transform: uppercase;
     padding: 0.5rem 2rem;
     cursor: pointer;
