@@ -53,10 +53,8 @@ export default function Navbar() {
       {isOpen && (
         <NavigationSmallDevice>
           <NavigationLink to="/">Home</NavigationLink>
-          <NavigationLink to="/purchase">Purchase</NavigationLink>
+          <NavigationLink to="/shop">Purchase</NavigationLink>
           <NavigationLink to="/cart">Cart</NavigationLink>
-          <NavigationLink to="/posts">Posts</NavigationLink>
-          <NavigationLink to="/login">Login</NavigationLink>
         </NavigationSmallDevice>
       )}
     </Navigation>
