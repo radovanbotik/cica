@@ -120,7 +120,7 @@ const NavigationLink = styled(Link)`
   }
   &:visited,
   &:active {
-    color: ${props => props.fontcolor || "inherit"};
+    color: var(--text);
   }
   &:hover:not(:last-child) {
     &:after {
