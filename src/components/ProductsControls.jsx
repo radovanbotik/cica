@@ -57,7 +57,7 @@ export default function ProductsControls() {
             name="price"
             id="price"
             min={min_price}
-            max={max_price + 1}
+            max={max_price}
             value={price}
             onChange={setControls}
           />
